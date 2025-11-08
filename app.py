@@ -226,10 +226,10 @@ async def get_token(access_token: str):
     start_time = time.time()
     
     # Step 1: Validate token
-    if len(access_token) < 20:
+    if len(access_token) < 5:
         raise HTTPException(
             status_code=400,
-            detail="Định dạng mã thông báo không chính xác (mã thông báo phải dài ít nhất 20 ký tự)"
+            detail="Định dạng mã thông báo không chính xác (mã thông báo phải dài ít nhất 5 ký tự)"
         )
     
     # Step 2: Inspect token
