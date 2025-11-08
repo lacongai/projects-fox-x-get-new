@@ -274,6 +274,7 @@ async def get_token(access_token: str):
 async def health_check():
     return {
         "status": "running",
+        "creator": "@henntaiiz",
         "service": "Free Fire Token API",
         "version": "1.0",
         "timestamp": get_current_time()
