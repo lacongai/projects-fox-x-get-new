@@ -209,7 +209,7 @@ def get_jwt_token(access_token, open_id, platform, login_platform):
 app = FastAPI(
     title="API mã thông báo Free Fire",
     description="API để trích xuất mã thông báo JWT từ Free Fire",
-    version="1.0"
+    version="2.0"
 )
 
 class TokenResponse(BaseModel):
@@ -276,6 +276,6 @@ async def health_check():
         "status": "running",
         "creator": "@henntaiiz",
         "service": "Free Fire Token API",
-        "version": "1.0",
+        "version": "2.0",
         "timestamp": get_current_time()
     }
