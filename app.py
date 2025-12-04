@@ -241,10 +241,18 @@ async def get_token(access_token: str):
             detail=f"Xác minh mã thông báo không thành công: {inspection.get('error', '')} - {inspection.get('message', '')}"
         )
     
-    open_id = inspection['open_id']
-    platform = inspection['platform']
-    login_platform = inspection['login_platform']
-    
+    open_id = inspection.get("open_id")
+    platform = inspection.get("platform")
+    login_platform = inspection.get("login_platform")
+
+    # Các trường mới (nếu không có thì để rỗng)
+    accountId = inspection.get("accountId", "")
+    agoraEnvironment = inspection.get("agoraEnvironment", "live")
+    ipRegion = inspection.get("ipRegion", "")
+    lockRegion = inspection.get("lockRegion", "")
+    notiRegion = inspection.get("notiRegion", "")
+    serverUrl = inspection.get("serverUrl", "")
+
     if not open_id:
         raise HTTPException(
             status_code=400,
@@ -256,14 +264,19 @@ async def get_token(access_token: str):
     processing_time = time.time() - start_time
     
     if jwt_result['success']:
-        return TokenResponse(
-            status="success",
-            token=jwt_result['token'],
-            open_id=open_id,
-            platform=platform,
-            processing_time=processing_time,
-            timestamp=get_current_time()
-        )
+        return {
+            "status": "success",
+            "token": jwt_result['token'],
+            "open_id": open_id,
+            "platform": platform,
+
+            # === TRẢ VỀ CÁC TRƯỜNG MỚI ===
+            "agoraEnvironment": agoraEnvironment,
+            # =============================
+
+            "processing_time": processing_time,
+            "timestamp": get_current_time()
+        }
     else:
         raise HTTPException(
             status_code=500,
