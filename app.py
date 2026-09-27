@@ -20,7 +20,7 @@ RELEASE_VERSION = "OB55"
 USER_AGENT = "Dalvik/2.1.0 (Linux; U; Android 9; ASUS_Z01QD Build/PI)"
 
 LOGIN_URLS = [
-    "https://loginbp.ggpolarbear.com/MajorLogin",
+    "https://loginbp.ppmainecoonghj.com/MajorLogin",
 ]
 
 INSPECT_URL = "https://100067.connect.garena.com/oauth/token/inspect"
