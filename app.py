@@ -17,11 +17,9 @@ from Crypto.Util.Padding import pad
 MAIN_KEY = base64.b64decode('WWcmdGMlREV1aDYlWmNeOA==')
 MAIN_IV = base64.b64decode('Nm95WkRyMjJFM3ljaGpNJQ==')
 RELEASE_VERSION = "OB55"
-USER_AGENT = "Dalvik/2.1.0 (Linux; U; Android 9; ASUS_Z01QD Build/PI)"
+USER_AGENT = "Dalvik/2.1.0"
 
-LOGIN_URLS = [
-    "https://loginbp.ppmainecoonghj.com/MajorLogin",
-]
+LOGIN_URLS = "https://loginbp.ppmainecoonghj.com/MajorLogin"
 
 INSPECT_URL = "https://100067.connect.garena.com/oauth/token/inspect"
 
